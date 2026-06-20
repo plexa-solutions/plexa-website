@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Plexa Solutions</title>
+<meta name="description" content="How Plexa Solutions collects, uses and protects personal data. Our commitments under GDPR.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root{
+  --bg:#0b1119;
+  --bg-2:#0f1722;
+  --panel:#141d2b;
+  --ink:#eef3f8;
+  --ink-soft:#a7b4c4;
+  --muted:#6b7a8d;
+  --line:rgba(255,255,255,.09);
+  --accent:#3dd9b0;
+  --accent-2:#4ea4e8;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Space Grotesk',sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;}
+.wrap{max-width:820px;margin:0 auto;padding:0 32px;}
+a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(61,217,176,0.3);transition:border-color .2s;}
+a:hover{border-color:var(--accent);}
+h1,h2,h3{font-weight:600;letter-spacing:-.4px;line-height:1.15;}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:50;background:rgba(11,17,25,.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:74px;max-width:1180px;margin:0 auto;padding:0 32px;}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;border-bottom:none;}
+.brand-logo{height:36px;width:auto;display:block;}
+
+/* HEADER */
+header.page{padding:80px 0 40px;}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:12.5px;letter-spacing:1px;color:var(--accent);margin-bottom:18px;}
+.eyebrow::before{content:"// ";opacity:.6;}
+header.page h1{font-size:48px;margin-bottom:18px;}
+header.page .lede{font-size:17.5px;color:var(--ink-soft);max-width:62ch;}
+.updated{margin-top:18px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);}
+
+/* BODY */
+main{padding:30px 0 80px;}
+section{padding:30px 0;border-top:1px solid var(--line);}
+section:first-child{border-top:none;}
+section h2{font-size:24px;color:var(--ink);margin-bottom:16px;display:flex;align-items:baseline;gap:14px;}
+section h2 .num{font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--accent);font-weight:500;}
+section h3{font-size:16px;color:var(--ink);margin:22px 0 8px;}
+section p{font-size:15.5px;color:var(--ink-soft);margin-bottom:14px;}
+section ul{margin:0 0 16px 0;padding-left:0;list-style:none;}
+section li{font-size:15.5px;color:var(--ink-soft);padding-left:22px;position:relative;margin-bottom:8px;line-height:1.6;}
+section li::before{content:"";position:absolute;left:0;top:11px;width:6px;height:6px;border-radius:50%;background:var(--accent);opacity:0.7;}
+section li b{color:var(--ink);font-weight:600;}
+
+/* TABLE-LIKE LISTING for sub-processors */
+.subproc{display:grid;grid-template-columns:1fr 2fr;gap:0;background:var(--panel);border:1px solid var(--line);border-radius:12px;margin:16px 0;overflow:hidden;}
+.subproc .row{display:contents;}
+.subproc .row > div{padding:14px 18px;border-bottom:1px solid var(--line);}
+.subproc .row:last-child > div{border-bottom:none;}
+.subproc .name{font-weight:600;color:var(--ink);font-size:14.5px;}
+.subproc .purpose{color:var(--ink-soft);font-size:14.5px;}
+
+/* Contact box */
+.contact-box{background:linear-gradient(160deg,var(--panel),var(--bg));border:1px solid var(--line);border-radius:14px;padding:24px 28px;margin:16px 0;}
+.contact-box p{margin-bottom:6px;}
+.contact-box .label{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--muted);letter-spacing:0.5px;text-transform:uppercase;}
+
+/* FOOTER */
+footer{border-top:1px solid var(--line);padding:48px 0;background:var(--bg-2);}
+.foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;max-width:1180px;margin:0 auto;padding:0 32px;}
+.foot-links{display:flex;gap:28px;font-size:14px;color:var(--muted);}
+.foot-links a{border-bottom:none;color:var(--muted);}
+.foot-links a:hover{color:var(--accent);}
+.foot-note{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--muted);max-width:70ch;margin:26px auto 0;padding:0 32px;line-height:1.6;}
+
+@media(max-width:680px){
+  header.page h1{font-size:34px;}
+  .subproc{grid-template-columns:1fr;}
+  .subproc .row > div{border-bottom:1px solid var(--line);}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <a href="/" class="brand" aria-label="Plexa Solutions">
+      <svg class="brand-logo" viewBox="0 0 290 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <linearGradient id="navMark" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#3dd9b0"/>
+            <stop offset="100%" stop-color="#4ea4e8"/>
+          </linearGradient>
+        </defs>
+        <g transform="translate(4,12)">
+          <rect width="36" height="36" rx="9" ry="9" fill="url(#navMark)"/>
+          <text x="18" y="26" text-anchor="middle" font-family="Fraunces, 'Times New Roman', serif" font-weight="600" font-size="20" letter-spacing="-0.5" fill="#0b1119">PS</text>
+        </g>
+        <g transform="translate(52,0)">
+          <text x="0" y="40" font-family="Fraunces, 'Times New Roman', serif" font-weight="600" font-size="26" letter-spacing="-0.6" fill="#eef3f8">Plexa</text>
+          <text x="74" y="40" font-family="Fraunces, 'Times New Roman', serif" font-weight="500" font-size="26" font-style="italic" letter-spacing="-0.5" fill="#3dd9b0">Solutions</text>
+        </g>
+      </svg>
+    </a>
+    <a href="/" style="color:var(--ink-soft);font-size:14px;border-bottom:none;">← Back to home</a>
+  </div>
+</nav>
+
+<header class="page">
+  <div class="wrap">
+    <div class="eyebrow">privacy</div>
+    <h1>Privacy Policy</h1>
+    <p class="lede">This policy explains how Plexa Solutions Limited collects, uses and protects personal data when you visit our website, contact us, or work with us as a client. We've kept it as plain as we can.</p>
+    <div class="updated">Last updated: June 2026</div>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+
+<section>
+  <h2><span class="num">01</span>Who we are</h2>
+  <p><b>Plexa Solutions Limited</b> ("Plexa", "we", "us") is a private limited company registered in Ireland. We are the data controller responsible for the personal data described in this policy when you visit our website or contact us directly.</p>
+  <p>When we deliver services to clients, the picture is slightly different — we typically act as a data processor on behalf of the client. We explain that separation below.</p>
+  <p>If you have any questions about this policy, contact us at <a href="mailto:hello@plexasolutions.ie">hello@plexasolutions.ie</a>.</p>
+</section>
+
+<section>
+  <h2><span class="num">02</span>What data we collect, and why</h2>
+
+  <h3>When you visit the website</h3>
+  <p>Our website is hosted on Netlify. Like any hosted site, Netlify automatically records basic information about visitors — IP address, browser type, pages viewed, and approximate location. We use this only to keep the site running securely and to understand basic traffic patterns. We do not currently use third-party analytics, advertising trackers, or marketing cookies.</p>
+
+  <h3>When you book a call or send us an email</h3>
+  <p>If you book a call through our website, our scheduling provider (Calendly) collects your name, email address, company name, and anything you choose to write in the booking form. We use this to prepare for and hold the meeting with you.</p>
+  <p>If you email us directly, we receive whatever you write, including your email address, name, and the contents of your message. We use this to respond and, if appropriate, to follow up.</p>
+  <p>Our legal basis for processing this information is our <b>legitimate interest</b> in responding to genuine business enquiries, and your consent in choosing to contact us.</p>
+
+  <h3>When you become a client</h3>
+  <p>If you engage us for services, we process whatever personal data is necessary to deliver the work — typically the contact details of your team, and any data your project requires us to handle on your behalf. In that scenario you are the data <b>controller</b> and we are your <b>processor</b>, governed by a separate Data Processing Agreement we will sign with you.</p>
+</section>
+
+<section>
+  <h2><span class="num">03</span>Who else processes data on our behalf</h2>
+  <p>We use a small number of trusted service providers to run the business. These are our sub-processors:</p>
+
+  <div class="subproc">
+    <div class="row"><div class="name">Netlify</div><div class="purpose">Website hosting (US-based, GDPR-compliant data processing terms in place)</div></div>
+    <div class="row"><div class="name">Calendly</div><div class="purpose">Meeting scheduling for visitors who book a call</div></div>
+    <div class="row"><div class="name">GoDaddy</div><div class="purpose">Domain registration and email hosting</div></div>
+    <div class="row"><div class="name">INT (engineering partner)</div><div class="purpose">When you engage us for client work, our engineering partner may process project data as our sub-processor, under Standard Contractual Clauses for transfers outside the EEA</div></div>
+  </div>
+
+  <p>For each provider, we rely on contractual safeguards (data processing agreements and, where required, EU Standard Contractual Clauses) to ensure your data is handled to GDPR standards.</p>
+</section>
+
+<section>
+  <h2><span class="num">04</span>International transfers</h2>
+  <p>Some of our service providers are located outside the European Economic Area (EEA) — for example, Netlify and Calendly in the United States, and our engineering delivery partner in India.</p>
+  <p>For all such transfers, we rely on the European Commission's <b>Standard Contractual Clauses</b> as the legal basis. We assess each provider's safeguards and only use those that maintain protections equivalent to GDPR.</p>
+  <p>When client engagements involve transfers to our engineering partner, this is covered explicitly in the Data Processing Agreement we sign with the client.</p>
+</section>
+
+<section>
+  <h2><span class="num">05</span>How long we keep your data</h2>
+  <ul>
+    <li><b>Enquiries and website contacts</b> — up to 24 months from your last interaction, unless we become a client of yours, in which case retention follows the contract.</li>
+    <li><b>Calendly booking data</b> — retained per Calendly's own policy and deleted from our systems within 12 months of the meeting.</li>
+    <li><b>Email correspondence</b> — retained for the duration of any active discussion and for a reasonable period afterwards (typically 24 months) for legal, tax and reference purposes.</li>
+    <li><b>Client engagement data</b> — retained per the relevant client contract, then deleted or returned in line with that agreement.</li>
+  </ul>
+</section>
+
+<section>
+  <h2><span class="num">06</span>Your rights</h2>
+  <p>Under GDPR you have the following rights regarding your personal data:</p>
+  <ul>
+    <li><b>Access</b> — request a copy of the personal data we hold about you.</li>
+    <li><b>Rectification</b> — ask us to correct anything that is inaccurate or incomplete.</li>
+    <li><b>Erasure</b> — ask us to delete your personal data, in certain circumstances.</li>
+    <li><b>Restriction</b> — ask us to stop processing your data while a query is resolved.</li>
+    <li><b>Objection</b> — object to processing we carry out on the basis of legitimate interest.</li>
+    <li><b>Data portability</b> — receive your data in a structured, machine-readable format.</li>
+    <li><b>Withdraw consent</b> — where we rely on consent, you can withdraw it at any time.</li>
+  </ul>
+  <p>To exercise any of these rights, email us at <a href="mailto:hello@plexasolutions.ie">hello@plexasolutions.ie</a>. We will respond within 30 days.</p>
+</section>
+
+<section>
+  <h2><span class="num">07</span>Cookies</h2>
+  <p>Our website uses only essential cookies necessary for the site to function. We do not currently set marketing or third-party tracking cookies. If we add any in future, we will update this policy and seek your consent first where required.</p>
+</section>
+
+<section>
+  <h2><span class="num">08</span>Security</h2>
+  <p>We take reasonable technical and organisational measures to protect personal data — including encrypted transmission (HTTPS across the website), access controls on our systems, and contracts requiring our service providers to maintain equivalent standards. No system is perfectly secure, but we work to reduce risk to a level appropriate to the data involved.</p>
+</section>
+
+<section>
+  <h2><span class="num">09</span>Complaints and supervisory authority</h2>
+  <p>If you have a concern about how we handle your data, please contact us first at <a href="mailto:hello@plexasolutions.ie">hello@plexasolutions.ie</a> — we'd rather hear and address it than not.</p>
+  <p>You also have the right to lodge a complaint with the Irish supervisory authority, the <b>Data Protection Commission (DPC)</b>:</p>
+  <div class="contact-box">
+    <p><span class="label">Authority</span><br>Data Protection Commission</p>
+    <p><span class="label">Web</span><br><a href="https://www.dataprotection.ie" target="_blank" rel="noopener">www.dataprotection.ie</a></p>
+    <p><span class="label">Address</span><br>21 Fitzwilliam Square South, Dublin 2, D02 RD28, Ireland</p>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">10</span>Changes to this policy</h2>
+  <p>We may update this policy from time to time to reflect changes in how we operate or in the law. The "last updated" date at the top of this page will always show when it was last revised. Significant changes will be communicated directly to active clients.</p>
+</section>
+
+<section>
+  <h2><span class="num">11</span>Contact</h2>
+  <div class="contact-box">
+    <p><span class="label">Controller</span><br>Plexa Solutions Limited</p>
+    <p><span class="label">Email</span><br><a href="mailto:hello@plexasolutions.ie">hello@plexasolutions.ie</a></p>
+    <p><span class="label">Registered office</span><br>45 Hawkins Wood Avenue, Greystones, Co. Wicklow, A63 X9C4, Ireland</p>
+  </div>
+</section>
+
+</div>
+</main>
+
+<footer>
+  <div class="foot-in">
+    <a href="/" class="brand" aria-label="Plexa Solutions">
+      <svg class="brand-logo" viewBox="0 0 290 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <linearGradient id="footMark" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#3dd9b0"/>
+            <stop offset="100%" stop-color="#4ea4e8"/>
+          </linearGradient>
+        </defs>
+        <g transform="translate(4,12)">
+          <rect width="36" height="36" rx="9" ry="9" fill="url(#footMark)"/>
+          <text x="18" y="26" text-anchor="middle" font-family="Fraunces, 'Times New Roman', serif" font-weight="600" font-size="20" letter-spacing="-0.5" fill="#0b1119">PS</text>
+        </g>
+        <g transform="translate(52,0)">
+          <text x="0" y="40" font-family="Fraunces, 'Times New Roman', serif" font-weight="600" font-size="26" letter-spacing="-0.6" fill="#eef3f8">Plexa</text>
+          <text x="74" y="40" font-family="Fraunces, 'Times New Roman', serif" font-weight="500" font-size="26" font-style="italic" letter-spacing="-0.5" fill="#3dd9b0">Solutions</text>
+        </g>
+      </svg>
+    </a>
+    <div class="foot-links">
+      <a href="/">Home</a>
+      <a href="mailto:hello@plexasolutions.ie">hello@plexasolutions.ie</a>
+    </div>
+  </div>
+  <div class="foot-note">Plexa Solutions Limited · Registered in Ireland · Dublin, Ireland &amp; Stockholm, Sweden</div>
+</footer>
+
+</body>
+</html>

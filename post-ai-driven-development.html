@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI-Driven Development: What Actually Changes (And What Doesn't) — Plexa Solutions</title>
+<meta name="description" content="A practical look at how AI is reshaping the software lifecycle — where it accelerates the work, where it helps modestly, and where it does nothing or actively hurts.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://plexasolutions.ie/post-ai-driven-development.html">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://plexasolutions.ie/post-ai-driven-development.html">
+<meta property="og:site_name" content="Plexa Solutions">
+<meta property="og:title" content="AI-Driven Development: What Actually Changes (And What Doesn't)">
+<meta property="og:description" content="A practical look at how AI is reshaping the software lifecycle — where it accelerates the work, and where it doesn't.">
+<meta property="og:image" content="https://plexasolutions.ie/og_image.png">
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap');
+:root{--bg:#0b1119;--bg-2:#0f1722;--panel:#141d2b;--ink:#eef3f8;--ink-soft:#a7b4c4;--muted:#6b7a8d;--line:rgba(255,255,255,.09);--accent:#3dd9b0;--accent-2:#4ea4e8;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Space Grotesk',sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;}
+.wrap{max-width:720px;margin:0 auto;padding:0 32px;}
+a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(61,217,176,0.3);transition:border-color .2s;}
+a:hover{border-color:var(--accent);}
+h1,h2,h3{font-weight:600;letter-spacing:-.4px;line-height:1.2;}
+
+nav{position:sticky;top:0;z-index:50;background:rgba(11,17,25,.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:74px;max-width:1180px;margin:0 auto;padding:0 32px;}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;border-bottom:none;}
+.brand-logo{height:36px;width:auto;display:block;}
+.nav-back{color:var(--ink-soft);font-size:14px;border-bottom:none;}
+
+header.post{padding:70px 0 36px;}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:12.5px;letter-spacing:1px;color:var(--accent);margin-bottom:20px;}
+.eyebrow::before{content:"// ";opacity:.6;}
+header.post h1{font-size:42px;line-height:1.12;margin-bottom:22px;max-width:20ch;}
+.post-meta{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--muted);display:flex;gap:18px;flex-wrap:wrap;}
+
+article{padding:20px 0 70px;}
+article p{font-family:'Spectral',serif;font-size:18.5px;color:#d4dde7;margin-bottom:22px;line-height:1.75;}
+article h2{font-size:27px;color:var(--ink);margin:46px 0 18px;}
+article h3{font-size:20px;color:var(--accent);margin:34px 0 12px;}
+article strong{color:var(--ink);font-weight:600;}
+article em{font-style:italic;color:#e8eef4;}
+article a{color:var(--accent);}
+article hr{border:none;border-top:1px solid var(--line);margin:44px 0;}
+article p:last-of-type{font-size:16px;color:var(--ink-soft);font-style:italic;border-left:2px solid var(--accent);padding-left:20px;font-family:'Spectral',serif;}
+
+.cta-band{background:linear-gradient(160deg,var(--panel),var(--bg));border:1px solid var(--line);border-radius:18px;padding:40px;text-align:center;margin:50px 0 0;}
+.cta-band h3{font-size:24px;color:var(--ink);margin-bottom:12px;}
+.cta-band p{font-family:'Space Grotesk',sans-serif;font-size:15px;color:var(--ink-soft);margin-bottom:24px;border:none;padding:0;font-style:normal;}
+.btn-primary{display:inline-block;background:var(--accent);color:var(--bg);padding:14px 30px;border-radius:8px;font-weight:600;font-size:15px;border-bottom:none;transition:transform .15s, box-shadow .15s;}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(61,217,176,.25);}
+
+footer{border-top:1px solid var(--line);padding:48px 0;background:var(--bg-2);margin-top:30px;}
+.foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;max-width:1180px;margin:0 auto;padding:0 32px;}
+.foot-links{display:flex;gap:24px 28px;font-size:14px;color:var(--muted);flex-wrap:wrap;}
+.foot-links a{border-bottom:none;color:var(--muted);}
+.foot-links a:hover{color:var(--accent);}
+.foot-note{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--muted);max-width:70ch;margin:26px auto 0;padding:0 32px;line-height:1.6;}
+@media(max-width:680px){header.post h1{font-size:31px;}article p{font-size:17px;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <a href="/" class="brand" aria-label="Plexa Solutions">
+      <svg class="brand-logo" viewBox="0 0 290 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs><linearGradient id="navMark" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#3dd9b0"/><stop offset="100%" stop-color="#4ea4e8"/></linearGradient></defs>
+        <g transform="translate(4,12)"><rect width="36" height="36" rx="9" ry="9" fill="url(#navMark)"/><text x="18" y="26" text-anchor="middle" font-family="Fraunces, 'Times New Roman', serif" font-weight="600" font-size="20" letter-spacing="-0.5" fill="#0b1119">PS</text></g>
+        <g transform="translate(52,0)"><text x="0" y="40" font-family="Fraunces, 'Times New Roman', serif" font-weight="600" font-size="26" letter-spacing="-0.6" fill="#eef3f8">Plexa</text><text x="74" y="40" font-family="Fraunces, 'Times New Roman', serif" font-weight="500" font-size="26" font-style="italic" letter-spacing="-0.5" fill="#3dd9b0">Solutions</text></g>
+      </svg>
+    </a>
+    <a href="/blog.html" class="nav-back">← All posts</a>
+  </div>
+</nav>
+
+<header class="post">
+  <div class="wrap">
+    <div class="eyebrow">insights</div>
+    <h1>AI-Driven Development: What Actually Changes (And What Doesn't)</h1>
+    <div class="post-meta"><span>June 2026</span><span>·</span><span>7 min read</span><span>·</span><span>Engineering</span></div>
+  </div>
+</header>
+
+<article>
+  <div class="wrap">
+<p>Every week there's a new take on AI and software. Half of them say engineers will be gone by next year. The other half are written by people who tried Copilot for an afternoon, didn't like the autocomplete, and decided the whole thing was overblown.</p>
+<p>Neither is right, and the gap between them is where the interesting stuff lives.</p>
+<p>We build software for a living, inside real teams, on real deadlines. So this is what we actually see — not the keynote version, the Tuesday-afternoon version. Some of it matches the hype. A lot of it doesn't. And the teams getting real value out of AI are not the ones with the longest list of tools. They're the ones who worked out <em>where</em> AI helps and, just as importantly, where it quietly makes things worse.</p>
+<h2>Start with the boring observation</h2>
+<p>Software gets built in stages. Figure out the problem, design the system, write the code, test it, review it, document it, ship it, run it, change it. The names shift depending on who's drawing the diagram, but the work is roughly that.</p>
+<p>Here's the thing nobody tells you: AI does not touch these stages equally. It transforms a couple of them. It's mildly useful for a few. And for the most important ones, it does almost nothing — occasionally it actively gets in the way.</p>
+<p>Most teams miss this. They either sprinkle AI across everything and wonder why the gains are smaller than promised, or they get burned in one area and write the whole thing off. Both mistakes come from treating "AI for software" as one thing. It isn't.</p>
+<h2>Where it genuinely earns its keep</h2>
+<h3>Writing code</h3>
+<p>This is the part everyone's heard about, and honestly, the noise is justified here. Tools like Copilot, Cursor, Claude Code — they don't write your application for you, but they collapse the time between "I know what I need" and "the code exists and runs."</p>
+<p>On a team using these well, the distance from intent to working code drops by something like a third to a half. Not because the AI is thinking — the engineer still has to know exactly what they want — but because the dull mechanical bit, turning a clear idea into syntax, stops being the bottleneck.</p>
+<p>The catch is the part the tool vendors skip over. This only works if the person driving already knows what good looks like. A strong engineer with AI ships better code, faster. A weak one ships code that <em>looks</em> right, compiles, passes a casual glance — and may be quietly wrong in ways they can't see. AI is an amplifier. Point it at skill and you get more skill. Point it at confusion and you get faster, more confident confusion.</p>
+<h3>Testing</h3>
+<p>This one doesn't get enough attention, and it might be the biggest win of the lot.</p>
+<p>Nobody likes writing tests. Engineers under-invest in them because they're tedious and the payoff is invisible until something breaks at 2am. So coverage stays low, and everyone feels vaguely guilty about it.</p>
+<p>AI is genuinely good at this. Hand it a function and it'll generate sensible cases — happy path, edge cases, the error conditions people forget — in seconds. We've watched teams go from "we should really write more tests" to 80%-plus coverage in a couple of weeks, simply because the friction collapsed. And the second-order effect is the real prize: a well-tested codebase is one you can change without fear. That changes how fast a team can move on everything else. The compounding over a year is enormous and almost nobody factors it in.</p>
+<h3>Review and documentation</h3>
+<p>Two chores that are everyone's job and therefore nobody's. Both improve a lot with AI.</p>
+<p>For review: AI catches the stuff humans miss in the third review of a tired Friday afternoon. Null-pointer risks, inconsistent error handling, the performance smell nobody clocked. It doesn't replace a senior eye, but it raises the floor of every review, and fewer bugs slip through to production.</p>
+<p>Documentation is where it's almost embarrassing how much changes. The docs that used to take an afternoon — API references, architecture decision records, runbooks — take minutes now. One warning: AI will happily document behaviour that doesn't exist, with total confidence, so somebody has to actually read it. But with that check in place, docs go from "perpetually six months stale" to "actually current," which any engineer will tell you is close to a miracle.</p>
+<h2>Where it helps a bit, and don&#x27;t oversell it</h2>
+<p>A few stages get a real but modest lift, and it's worth being clear-eyed so you don't over-invest.</p>
+<p>Deployment and ops: useful for generating infra config and pattern-matching log noise. But the hard parts — rollback strategy, canary versus blue-green, knowing when to fail forward — are still judgement, and AI does the typing, not the deciding.</p>
+<p>Refactoring: fine for the small stuff, renaming, extracting a method, modernising old syntax. Much shakier on large architectural moves, where the right answer depends on things that aren't written down anywhere in the code.</p>
+<p>Debugging: a decent rubber duck. Moderately good at matching an error to a likely cause, much weaker the moment the bug is genuinely novel — which is exactly where the hours go. Most senior people we work with use it to think out loud, not to diagnose.</p>
+<h2>Where it does nothing — or hurts</h2>
+<p>This is the part the marketing decks leave out.</p>
+<p><strong>Understanding what to actually build.</strong> The earliest, most expensive stage — working out what the business needs and what it's really asking for, underneath what it said it wants. AI can summarise the meeting. It cannot tell you the stakeholder's stated requirement isn't their real one. It can't push back on a woolly brief or ask the one question that reframes the whole project. This is where the costliest mistakes get made, and AI is no help. Worse: lean on it here and you'll ship faster in the wrong direction, which is the most expensive kind of fast.</p>
+<p><strong>System design.</strong> How services split, where the data lives, what scales and how, what the security model is — these depend on context that exists nowhere in any codebase. AI can pull a pattern from a library of patterns. It can't tell you whether <em>this</em> pattern fits <em>your</em> situation, your team, your five-year plan. We've seen teams generate gorgeous architecture diagrams that have nothing to do with what should actually be built, because asking the machine felt easier than doing the thinking. That bill always comes due.</p>
+<p><strong>The judgement calls.</strong> When to say no. When to rebuild instead of patch. When the imperfect version is the right one to ship. When to stop and rethink the whole thing. This is the actual job, the part you pay senior people for, and it's the part AI can't do and probably won't for a long time.</p>
+<p>Which is also where "AI replaces engineers" quietly falls apart. AI hugely increases how much one engineer can <em>produce</em>. It does nothing to reduce how much judgement they need to <em>apply</em>. If anything it raises the stakes — more code, more decisions, more forks in the road, and bad calls now compound faster than ever.</p>
+<h2>So what do you do with all this</h2>
+<p>If you're running a team or a software-dependent business, three things actually matter.</p>
+<p>Put your AI effort where the gains are real: coding, testing, review, docs. Teams that go hard on those four ship more, faster, with fewer bugs, and they will pull ahead on cost and speed. It's not subtle.</p>
+<p>Resist using it for the early thinking. AI for discovery, for architecture, for the genuine judgement calls — that's where it wastes time at best and generates expensive, confident mistakes at worst. Be deliberate about keeping it out of those rooms.</p>
+<p>And stop treating senior engineers as the line item to cut. The companies trimming experienced staff to "do it all with AI" are setting themselves up for code that runs, tests that pass, and systems that fall over the moment real traffic hits. The premium on people who know what good looks like — who can spot the plausible-but-wrong and challenge a confident wrong answer — went <em>up</em>, not down.</p>
+<p>That last point is really the whole thing. AI didn't make engineering judgement cheap. It made it the scarcest, most valuable part of the job.</p>
+<hr>
+<p><em>Plexa Solutions is a senior European engineering consultancy. We've woven AI through how we build — coding, testing, review, docs — not as a talking point but because it's how the work gets done now, and we help our clients' teams work the same way. If any of this sounds like a conversation worth having, find us at <a href="https://plexasolutions.ie">plexasolutions.ie</a>.</em></p>
+
+    <div class="cta-band">
+      <h3>Thinking about AI in your own delivery?</h3>
+      <p>We help ambitious companies modernise their software, cloud and data — with AI built into the work. Let's talk.</p>
+      <a href="https://calendly.com/plexasolutions/30min" target="_blank" rel="noopener" class="btn-primary">Book a scoping call</a>
+    </div>
+  </div>
+</article>
+
+<footer>
+  <div class="foot-in">
+    <a href="/" class="brand" aria-label="Plexa Solutions">
+      <svg class="brand-logo" viewBox="0 0 290 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs><linearGradient id="footMark" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#3dd9b0"/><stop offset="100%" stop-color="#4ea4e8"/></linearGradient></defs>
+        <g transform="translate(4,12)"><rect width="36" height="36" rx="9" ry="9" fill="url(#footMark)"/><text x="18" y="26" text-anchor="middle" font-family="Fraunces, 'Times New Roman', serif" font-weight="600" font-size="20" letter-spacing="-0.5" fill="#0b1119">PS</text></g>
+        <g transform="translate(52,0)"><text x="0" y="40" font-family="Fraunces, 'Times New Roman', serif" font-weight="600" font-size="26" letter-spacing="-0.6" fill="#eef3f8">Plexa</text><text x="74" y="40" font-family="Fraunces, 'Times New Roman', serif" font-weight="500" font-size="26" font-style="italic" letter-spacing="-0.5" fill="#3dd9b0">Solutions</text></g>
+      </svg>
+    </a>
+    <div class="foot-links">
+      <a href="/">Home</a>
+      <a href="/blog.html">Blog</a>
+      <a href="https://www.linkedin.com/company/plexasolutions/about" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="mailto:hello@plexasolutions.ie">hello@plexasolutions.ie</a>
+    </div>
+  </div>
+  <div class="foot-note">Plexa Solutions Limited · Registered in Ireland · Dublin, Ireland &amp; Stockholm, Sweden</div>
+</footer>
+
+</body>
+</html>

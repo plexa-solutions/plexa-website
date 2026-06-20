@@ -1,0 +1,5 @@
+# Plexa Solutions robots.txt
+User-agent: *
+Allow: /
+
+Sitemap: https://plexasolutions.ie/sitemap.xml

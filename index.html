@@ -115,17 +115,33 @@ section{padding:90px 0;position:relative;}
 .why-item p{font-size:14px;color:var(--ink-soft);}
 @media(max-width:780px){.why-grid{grid-template-columns:1fr;}}
 
+/* FAQ */
+.faq-list{display:flex;flex-direction:column;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;}
+.faq-item{background:var(--bg);}
+.faq-item summary{padding:24px 28px;cursor:pointer;font-size:17px;font-weight:600;color:var(--ink);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;transition:background .2s;}
+.faq-item summary:hover{background:var(--panel);}
+.faq-item summary::-webkit-details-marker{display:none;}
+.faq-item summary::after{content:"+";font-family:'JetBrains Mono',monospace;font-size:22px;color:var(--accent);font-weight:400;flex:0 0 auto;transition:transform .25s;}
+.faq-item[open] summary::after{transform:rotate(45deg);}
+.faq-item[open] summary{background:var(--panel);}
+.faq-body{padding:0 28px 24px;color:var(--ink-soft);font-size:15px;line-height:1.65;}
+.faq-body p{margin-bottom:12px;}
+.faq-body p:last-child{margin-bottom:0;}
+
 /* CONTACT */
 .contact{text-align:center;position:relative;overflow:hidden;}
 .contact::before{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(61,217,176,.1),transparent 65%);}
 .contact-in{position:relative;z-index:2;}
 .contact h2{font-size:52px;max-width:16ch;margin:0 auto 20px;}
 .contact p{font-size:18px;color:var(--ink-soft);max-width:54ch;margin:0 auto 38px;}
+.contact-secondary{margin-top:24px;font-size:14px;color:var(--muted);}
+.contact-secondary a{color:var(--ink-soft);text-decoration:none;border-bottom:1px solid rgba(167,180,196,0.3);transition:color .2s,border-color .2s;}
+.contact-secondary a:hover{color:var(--accent);border-color:var(--accent);}
 
 /* FOOTER */
 footer{border-top:1px solid var(--line);padding:50px 0;background:var(--bg-2);}
 .foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;}
-.foot-links{display:flex;gap:28px;font-size:14px;color:var(--muted);}
+.foot-links{display:flex;gap:24px 28px;font-size:14px;color:var(--muted);flex-wrap:wrap;}
 .foot-links a:hover{color:var(--accent);}
 .foot-note{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--muted);max-width:70ch;margin-top:26px;line-height:1.6;}
 /* HOW WE WORK journey + assessment flow */
@@ -319,12 +335,80 @@ footer{border-top:1px solid var(--line);padding:50px 0;background:var(--bg-2);}
   </div>
 </section>
 
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-tag">faq</div>
+      <h2>Questions we hear a lot.</h2>
+      <p>The honest answers — the kind we'd give over coffee, not in a brochure.</p>
+    </div>
+    <div class="faq-list">
+
+      <details class="faq-item">
+        <summary>How do you actually deliver — what's the model?</summary>
+        <div class="faq-body">
+          <p>We're a senior European team — partners in Dublin and Stockholm — backed by an established engineering delivery network of around 1,100 people. The senior team here in Europe owns scoping, architecture, client relationships and oversight; the delivery network does the heavy build under that direction.</p>
+          <p>The benefit for you: senior accountability and time-zone alignment in Europe, with the depth and scale of a much larger engineering organisation behind us. You get one accountable team, not a stack of intermediaries.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Where does our data go? How does this work with GDPR?</summary>
+        <div class="faq-body">
+          <p>Short answer: your data is treated as if it never leaves the EU — and we structure every engagement that way.</p>
+          <p>Where possible, project data stays hosted in the EU (e.g. EU-region cloud) and our delivery team accesses it remotely under controlled, auditable conditions. Where data does need to move outside the EEA, it does so under Standard Contractual Clauses (SCCs), with documented Transfer Impact Assessments. Each client engagement is governed by a Data Processing Agreement (DPA) that names every sub-processor and the safeguards in place.</p>
+          <p>For pharma, fintech and medtech buyers in particular, we treat data governance and security as first-class concerns — not as paperwork bolted on at the end.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>You're a new company — what's your track record?</summary>
+        <div class="faq-body">
+          <p>Plexa Solutions as a brand is new, and we're upfront about that. What's not new is the experience behind it — the senior partners running it have years of building, shipping and scaling software for European businesses, and the engineering network we work with has 28 years of delivery experience and a deep client portfolio across regulated industries.</p>
+          <p>If track record matters to you (and it should), we can walk through specifics of the engineering network's work, references from previous engagements, and the way we structure new client work to de-risk both sides.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>How does the Cloud + AI Modernization Assessment lead to actual work?</summary>
+        <div class="faq-body">
+          <p>The assessment is intentionally a fixed-scope, fixed-fee starting point — not a sales process dressed up as one. You walk away with a costed, prioritised modernization roadmap you can fund and act on, whether or not you continue with us.</p>
+          <p>That said, the roadmap maps cleanly to ongoing engagements: typically a phased build, often delivered as embedded pods (a dedicated squad working as part of your team) or fixed-scope projects. Many clients move from assessment to delivery because the same senior team that designed the plan can execute it — no handoff, no re-discovery.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What size of company do you typically work with?</summary>
+        <div class="faq-body">
+          <p>Our sweet spot is mid-sized organisations — roughly 50 to 1,000 people — large enough to need real engineering and AI capability, small enough that we can deliver something that actually matters rather than disappearing into a programme office.</p>
+          <p>That said, we also work with ambitious smaller companies where the technology challenge is genuinely complex, and with specific divisions of larger enterprises. The honest question isn't size — it's whether we can do meaningful work together.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>How do you price your work?</summary>
+        <div class="faq-body">
+          <p>We use three engagement models, depending on the work:</p>
+          <p><b>Fixed-bid projects</b> — clear scope, clear deliverables, clear price. Good for well-defined builds. Our assessments fall into this bucket.</p>
+          <p><b>Dedicated pods</b> — an embedded squad (engineer + architect + PM, scaled to need) that operates like an extension of your team on a monthly basis. Best for sustained, evolving work.</p>
+          <p><b>Staff augmentation</b> — specific named skills added to your team on demand. Lightest commitment, flexible scaling.</p>
+          <p>We're happy to talk pricing openly on the first call — no quote-by-RFP processes that take six weeks. Most engagements land in a predictable, mid-market range.</p>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
 <section id="contact" class="contact">
   <div class="wrap contact-in">
     <div class="sec-tag" style="text-align:center;">get in touch</div>
     <h2>Let's start with a conversation.</h2>
     <p>A free scoping call to understand your goals, confirm fit, and see whether a modernization assessment is the right first step. No pressure, no obligation.</p>
     <a href="https://calendly.com/plexasolutions/30min" target="_blank" rel="noopener" class="btn-primary">Book a free scoping call</a>
+    <div class="contact-secondary">
+      Or find us on <a href="https://www.linkedin.com/company/plexasolutions/about" target="_blank" rel="noopener">LinkedIn</a> &middot; email <a href="mailto:hello@plexasolutions.ie">hello@plexasolutions.ie</a>
+    </div>
   </div>
 </section>
 
@@ -363,7 +447,10 @@ footer{border-top:1px solid var(--line);padding:50px 0;background:var(--bg-2);}
         <a href="#services">Services</a>
         <a href="#assessment">Assessment</a>
         <a href="#industries">Industries</a>
-        <a href="file:///privacy">Privacy</a>
+        <a href="#faq">FAQ</a>
+        <a href="https://www.linkedin.com/company/plexasolutions/about" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/terms.html">Terms</a>
         <a href="mailto:hello@plexasolutions.ie">hello@plexasolutions.ie</a>
       </div>
     </div>

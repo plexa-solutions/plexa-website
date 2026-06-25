@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why Most AI POCs Never Make It to Production — Plexa Solutions</title>
+<meta name="description" content="A proof of concept and a production system share a model and almost nothing else. Here's what actually separates the pilots that ship from the ones stuck in a downloads folder.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://plexasolutions.ie/post-ai-poc-to-production.html">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://plexasolutions.ie/post-ai-poc-to-production.html">
+<meta property="og:site_name" content="Plexa Solutions">
+<meta property="og:title" content="Why Most AI POCs Never Make It to Production">
+<meta property="og:description" content="A proof of concept and a production system share a model and almost nothing else. Here's the gap, and what separates the pilots that ship.">
+<meta property="og:image" content="https://plexasolutions.ie/og_image.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap');
+:root{--bg:#0b1119;--bg-2:#0f1722;--panel:#141d2b;--ink:#eef3f8;--ink-soft:#a7b4c4;--muted:#6b7a8d;--line:rgba(255,255,255,.09);--accent:#3dd9b0;--accent-2:#4ea4e8;}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Space Grotesk',sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;-webkit-font-smoothing:antialiased;}
+.wrap{max-width:720px;margin:0 auto;padding:0 32px;}
+a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(61,217,176,0.3);transition:border-color .2s;}
+a:hover{border-color:var(--accent);}
+h1,h2,h3{font-weight:600;letter-spacing:-.4px;line-height:1.2;}
+nav{position:sticky;top:0;z-index:50;background:rgba(11,17,25,.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:74px;max-width:1180px;margin:0 auto;padding:0 32px;}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;border-bottom:none;}
+.brand-logo{height:36px;width:auto;display:block;}
+.nav-back{color:var(--ink-soft);font-size:14px;border-bottom:none;}
+header.post{padding:70px 0 36px;}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:12.5px;letter-spacing:1px;color:var(--accent);margin-bottom:20px;}
+.eyebrow::before{content:"// ";opacity:.6;}
+header.post h1{font-size:40px;line-height:1.14;margin-bottom:22px;max-width:22ch;}
+.post-meta{font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--muted);display:flex;gap:18px;flex-wrap:wrap;}
+article{padding:20px 0 70px;}
+article p{font-family:'Spectral',serif;font-size:18.5px;color:#d4dde7;margin-bottom:22px;line-height:1.75;}
+article h2{font-size:27px;color:var(--ink);margin:46px 0 18px;}
+article h3{font-size:20px;color:var(--accent);margin:34px 0 12px;}
+article strong{color:var(--ink);font-weight:600;}
+article em{font-style:italic;color:#e8eef4;}
+article a{color:var(--accent);}
+article hr{border:none;border-top:1px solid var(--line);margin:44px 0;}
+article p:last-of-type{font-size:16px;color:var(--ink-soft);font-style:italic;border-left:2px solid var(--accent);padding-left:20px;font-family:'Spectral',serif;}
+.post-figure{margin:42px 0;padding:28px 28px 24px;background:var(--panel);border:1px solid var(--line);border-radius:16px;}
+.post-figure svg{width:100%;height:auto;display:block;}
+.post-figure figcaption{font-family:'Space Grotesk',sans-serif;font-size:13px;color:var(--muted);margin-top:16px;line-height:1.5;font-style:normal;}
+.cta-band{background:linear-gradient(160deg,var(--panel),var(--bg));border:1px solid var(--line);border-radius:18px;padding:40px;text-align:center;margin:50px 0 0;}
+.cta-band h3{font-size:24px;color:var(--ink);margin-bottom:12px;}
+.cta-band p{font-family:'Space Grotesk',sans-serif;font-size:15px;color:var(--ink-soft);margin-bottom:24px;border:none;padding:0;font-style:normal;}
+.btn-primary{display:inline-block;background:var(--accent);color:var(--bg);padding:14px 30px;border-radius:8px;font-weight:600;font-size:15px;border-bottom:none;transition:transform .15s, box-shadow .15s;}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(61,217,176,.25);}
+footer{border-top:1px solid var(--line);padding:48px 0;background:var(--bg-2);margin-top:30px;}
+.foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;max-width:1180px;margin:0 auto;padding:0 32px;}
+.foot-links{display:flex;gap:24px 28px;font-size:14px;color:var(--muted);flex-wrap:wrap;}
+.foot-links a{border-bottom:none;color:var(--muted);}
+.foot-links a:hover{color:var(--accent);}
+.foot-note{font-family:'JetBrains Mono',monospace;font-size:11.5px;color:var(--muted);max-width:70ch;margin:26px auto 0;padding:0 32px;line-height:1.6;}
+@media(max-width:680px){header.post h1{font-size:29px;}article p{font-size:17px;}.post-figure{padding:18px 14px;}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-in">
+    <a href="/" class="brand" aria-label="Plexa Solutions">
+      <svg class="brand-logo" viewBox="0 0 290 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs><linearGradient id="navMark" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#3dd9b0"/><stop offset="100%" stop-color="#4ea4e8"/></linearGradient></defs>
+        <g transform="translate(4,12)"><rect width="36" height="36" rx="9" ry="9" fill="url(#navMark)"/><text x="18" y="26" text-anchor="middle" font-family="Fraunces, 'Times New Roman', serif" font-weight="600" font-size="20" letter-spacing="-0.5" fill="#0b1119">PS</text></g>
+        <g transform="translate(52,0)"><text x="0" y="40" font-family="Fraunces, 'Times New Roman', serif" font-weight="600" font-size="26" letter-spacing="-0.6" fill="#eef3f8">Plexa</text><text x="74" y="40" font-family="Fraunces, 'Times New Roman', serif" font-weight="500" font-size="26" font-style="italic" letter-spacing="-0.5" fill="#3dd9b0">Solutions</text></g>
+      </svg>
+    </a>
+    <a href="/blog.html" class="nav-back">← All posts</a>
+  </div>
+</nav>
+<header class="post">
+  <div class="wrap">
+    <div class="eyebrow">insights</div>
+    <h1>Why Most AI POCs Never Make It to Production</h1>
+    <div class="post-meta"><span>June 2026</span><span>·</span><span>7 min read</span><span>·</span><span>AI &amp; Delivery</span></div>
+  </div>
+</header>
+<article>
+  <div class="wrap">
+<p>Walk into almost any mid-sized company right now and ask "what's happening with AI?" and you'll get the same answer, dressed in different words. There was a pilot. It went well. Everyone was excited. And then... nothing. The Slack channel went quiet. The demo deck is still in someone's downloads folder. Nobody quite remembers whose job it was to take it further.</p>
+<p>This isn't a failure of the technology. The models work. The demos are genuinely impressive — we've sat in plenty of them and they're not smoke and mirrors. The failure is somewhere else entirely, and it's a more interesting problem than "the AI wasn't good enough."</p>
+<figure class="post-figure">
+<svg viewBox="0 0 720 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram showing the gap between a working pilot and a production system">
+  <defs>
+    <linearGradient id="pocGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#3dd9b0"/>
+      <stop offset="100%" stop-color="#4ea4e8"/>
+    </linearGradient>
+  </defs>
+  <style>
+    .h{font-family:'Space Grotesk',sans-serif;font-weight:600;fill:#eef3f8;}
+    .label{font-family:'Space Grotesk',sans-serif;font-size:13.5px;fill:#d4dde7;}
+    .small{font-family:'JetBrains Mono',monospace;font-size:10.5px;fill:#6b7a8d;letter-spacing:.5px;}
+    .item{font-family:'Space Grotesk',sans-serif;font-size:12.5px;fill:#a7b4c4;}
+    .box{fill:rgba(255,255,255,.04);stroke:rgba(255,255,255,.09);stroke-width:1;}
+  </style>
+
+  <text x="0" y="26" class="h" font-size="19">The pilot proves the idea. Production proves you can run it.</text>
+
+  <!-- POC box -->
+  <rect x="0" y="50" width="290" height="270" rx="14" class="box"/>
+  <rect x="0" y="50" width="290" height="44" rx="14" fill="rgba(61,217,176,.12)"/>
+  <text x="20" y="78" class="h" font-size="16" fill="#3dd9b0">The pilot</text>
+
+  <text x="20" y="116" class="item">✓ Clean, hand-picked data</text>
+  <text x="20" y="142" class="item">✓ One user, one happy path</text>
+  <text x="20" y="168" class="item">✓ A human laughs off mistakes</text>
+  <text x="20" y="194" class="item">✓ No real load, no real cost</text>
+  <text x="20" y="220" class="item">✓ Built fast, slightly off-process</text>
+  <text x="20" y="246" class="item">✓ Success = applause in a demo</text>
+  <text x="20" y="284" class="small" fill="#3dd9b0">TAKES WEEKS</text>
+
+  <!-- Arrow -->
+  <path d="M 300 185 L 350 185" stroke="#6b7a8d" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#6b7a8d"/>
+    </marker>
+  </defs>
+  <text x="325" y="170" text-anchor="middle" class="small">THE</text>
+  <text x="325" y="206" text-anchor="middle" class="small">GAP</text>
+
+  <!-- Production box -->
+  <rect x="360" y="50" width="360" height="270" rx="14" class="box"/>
+  <rect x="360" y="50" width="360" height="44" rx="14" fill="rgba(78,164,232,.12)"/>
+  <text x="380" y="78" class="h" font-size="16" fill="#4ea4e8">Production</text>
+
+  <text x="380" y="116" class="item">✓ Messy, real-world data — every edge case</text>
+  <text x="380" y="142" class="item">✓ Every user, every malformed input, at once</text>
+  <text x="380" y="168" class="item">✓ A designed failure path — who sees it, then what</text>
+  <text x="380" y="194" class="item">✓ Real load, real cost-per-call at real volume</text>
+  <text x="380" y="220" class="item">✓ A named owner, security review, change control</text>
+  <text x="380" y="246" class="item">✓ Success = a number, agreed before launch</text>
+  <text x="380" y="284" class="small" fill="#4ea4e8">TAKES MONTHS — IF ANYONE OWNS IT</text>
+
+  <text x="0" y="356" class="label" font-style="italic" fill="#a7b4c4" font-size="12.5">Most AI investment doesn't fail in the pilot. It evaporates in the gap.</text>
+</svg>
+
+<figcaption>The pilot and the production system share a model. They don't share much else.</figcaption>
+</figure>
+
+<h2>The gap nobody puts in the slide deck</h2>
+<p>A proof of concept has to do one thing: prove the concept. That's it. It needs to work once, for one user, on one dataset, in a controlled demo, ideally in front of people who already want to be impressed.</p>
+<p>Production has to do a different thing entirely: keep working, for everyone, on data nobody cleaned up first, when the network is slow, when the input is malformed, when three people hit it at once, six months after the person who built it has moved to a different project.</p>
+<p>Those are not the same problem with different scale. They're different problems that happen to share a model underneath. And the gap between them is where the vast majority of AI investment quietly evaporates.</p>
+<p>We'd estimate — and this lines up with most of what we hear across the industry — that somewhere around three in four AI pilots never reach production in any meaningful form. Not because the pilot was bad. Because nobody budgeted for, or even named, the work that sits between "it worked in the demo" and "it works."</p>
+<h2>What the demo conveniently skips</h2>
+<p>Here's the part that's almost funny if you've sat through enough of these. A POC nearly always uses a clean, hand-picked dataset. Production data is never clean. It has duplicate customer records, three different date formats depending on which system it came from, fields that are blank for half of 2019 because someone changed the schema and didn't tell anyone, and at least one column where "N/A" and "n/a" and an empty string are all being used to mean three subtly different things.</p>
+<p>A model trained or prompted against the curated version falls over against the real version, not because it's a worse model, but because the inputs it's actually going to see were never part of the plan.</p>
+<p>Then there's the question of what happens when the model gets something wrong — and it will, regularly, because that's the nature of probabilistic systems. A POC handles this by having a human in the room who laughs it off. Production needs an actual answer to "what happens now." Does the system flag low-confidence outputs for review? Does it fail loudly or silently? Who's accountable when it confidently gives the wrong answer to a customer at 11pm on a Tuesday? Nobody designs this during the exciting part of the project, because it isn't exciting, and then it becomes the reason the whole thing stalls.</p>
+<p>And underneath all of that sits the genuinely unglamorous stuff: logging, monitoring, retry logic, rate limits, cost controls (a model that costs four cents per demo call costs a frightening amount per month at real volume if nobody designed for it), access control, and a credible answer to what your compliance team is going to ask the first time they hear "we're sending customer data to a third-party API." None of this shows up in a thirty-minute pilot. All of it shows up in the first month of running for real.</p>
+<h2>The organisational problem hiding inside the technical one</h2>
+<p>Here's the bit that's easy to miss if you're only looking at the tech. A lot of POCs stall for reasons that have nothing to do with engineering at all.</p>
+<p>The pilot usually gets built by whoever was curious enough and senior enough to get the budget — often a small, motivated team operating slightly outside the normal process, deliberately, because that's the only way anything moves fast inside a big organisation. That's a feature during the pilot phase. It becomes the exact reason it stalls afterward, because taking the thing into production means handing it to the people who run "normal," and normal has change-control boards, security review cycles, and a backlog that was already full before this showed up uninvited.</p>
+<p>Nobody owns the handoff. The person who built the pilot isn't usually the person who runs production systems, and the people who run production systems weren't in the room when the pilot got approved, so they have no context, no investment in it, and a long list of reasons to be cautious about something they didn't choose. We've watched a genuinely good pilot sit untouched for four months purely because nobody could agree whose backlog it belonged on.</p>
+<p>And there's a quieter version of this that's almost worse: the pilot succeeds technically and then nobody can agree what "success" actually means for shipping it. Did it save time? Whose time, measured how? Is a 90% accurate answer good enough if the other 10% has to go to a human anyway — and if so, did it actually save anything, or just move the work around? These should be questions asked before the pilot starts. They're almost always asked, if at all, after it's already built, when the answers are far more political and far less honest.</p>
+<h2>What actually separates the ones that make it</h2>
+<p>The pattern in the ones that do reach production isn't more impressive technology. It's that someone treated the production path as a real piece of work from day one, not an afterthought to be sorted out once the demo gets applause.</p>
+<p>That means deciding, before a line of code gets written, what "good enough to ship" actually looks like in numbers, not vibes — and who signs off on it. It means designing the failure path alongside the success path: what happens when the model is wrong, who sees it, what they do about it. It means putting the pilot in front of the messiest data you can find, deliberately, as early as possible, instead of being delighted by how well it does on the tidy sample — because the tidy sample was never going to be the problem.</p>
+<p>It also means picking, early, who owns this once the interesting part is over. Not symbolically. Actually owns it — has it on their plate, gets asked about it, is accountable when it breaks at 2am. Pilots without a named production owner from week one are, in our experience, the ones still sitting in the downloads folder a year later.</p>
+<p>And it means being honest, uncomfortably early, about cost at scale. The economics of a model call in a demo and the economics of the same call multiplied by your actual transaction volume are not the same conversation, and finding that out in month four of a production rollout is a bad time to find it out.</p>
+<h2>The boring truth at the centre of this</h2>
+<p>None of the above is exciting. There's no part of "design the failure path" or "agree what good enough means in numbers" that gets applause in a steering committee meeting. That's exactly why it gets skipped, and exactly why skipping it is so expensive.</p>
+<p>The companies getting real value out of AI right now aren't the ones with the flashiest pilots. They're the ones willing to spend time on the unglamorous middle — the data cleanup, the failure handling, the ownership question, the cost model — before they let anyone near a launch date. The pilot proves the idea works. Everything after that proves you can actually run it. Those are different jobs, and treating them as the same one is the most expensive mistake in AI right now, because it's invisible until the bill arrives.</p>
+<hr>
+<p><em>Plexa Solutions helps companies take AI from an interesting pilot to something that actually runs — the unglamorous middle included. If you've got a POC stuck in the downloads folder, we'd be glad to take a look. <a href="https://plexasolutions.ie">plexasolutions.ie</a></em></p>
+
+    <div class="cta-band">
+      <h3>Got a pilot stuck in the downloads folder?</h3>
+      <p>We help companies take AI from an interesting demo to something that actually runs. Let's talk.</p>
+      <a href="https://calendly.com/plexasolutions/30min" target="_blank" rel="noopener" class="btn-primary">Book a scoping call</a>
+    </div>
+  </div>
+</article>
+<footer>
+  <div class="foot-in">
+    <a href="/" class="brand" aria-label="Plexa Solutions">
+      <svg class="brand-logo" viewBox="0 0 290 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs><linearGradient id="footMark" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#3dd9b0"/><stop offset="100%" stop-color="#4ea4e8"/></linearGradient></defs>
+        <g transform="translate(4,12)"><rect width="36" height="36" rx="9" ry="9" fill="url(#footMark)"/><text x="18" y="26" text-anchor="middle" font-family="Fraunces, 'Times New Roman', serif" font-weight="600" font-size="20" letter-spacing="-0.5" fill="#0b1119">PS</text></g>
+        <g transform="translate(52,0)"><text x="0" y="40" font-family="Fraunces, 'Times New Roman', serif" font-weight="600" font-size="26" letter-spacing="-0.6" fill="#eef3f8">Plexa</text><text x="74" y="40" font-family="Fraunces, 'Times New Roman', serif" font-weight="500" font-size="26" font-style="italic" letter-spacing="-0.5" fill="#3dd9b0">Solutions</text></g>
+      </svg>
+    </a>
+    <div class="foot-links">
+      <a href="/">Home</a>
+      <a href="/blog.html">Blog</a>
+      <a href="https://www.linkedin.com/company/plexasolutions/about" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+      <a href="mailto:hello@plexasolutions.ie">hello@plexasolutions.ie</a>
+    </div>
+  </div>
+  <div class="foot-note">Plexa Solutions Limited · Registered in Ireland · Dublin, Ireland &amp; Stockholm, Sweden</div>
+</footer>
+</body>
+</html>

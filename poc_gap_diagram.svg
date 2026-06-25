@@ -1,0 +1,55 @@
+<svg viewBox="0 0 720 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram showing the gap between a working pilot and a production system">
+  <defs>
+    <linearGradient id="pocGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#3dd9b0"/>
+      <stop offset="100%" stop-color="#4ea4e8"/>
+    </linearGradient>
+  </defs>
+  <style>
+    .h{font-family:'Space Grotesk',sans-serif;font-weight:600;fill:#eef3f8;}
+    .label{font-family:'Space Grotesk',sans-serif;font-size:13.5px;fill:#d4dde7;}
+    .small{font-family:'JetBrains Mono',monospace;font-size:10.5px;fill:#6b7a8d;letter-spacing:.5px;}
+    .item{font-family:'Space Grotesk',sans-serif;font-size:12.5px;fill:#a7b4c4;}
+    .box{fill:rgba(255,255,255,.04);stroke:rgba(255,255,255,.09);stroke-width:1;}
+  </style>
+
+  <text x="0" y="26" class="h" font-size="19">The pilot proves the idea. Production proves you can run it.</text>
+
+  <!-- POC box -->
+  <rect x="0" y="50" width="290" height="270" rx="14" class="box"/>
+  <rect x="0" y="50" width="290" height="44" rx="14" fill="rgba(61,217,176,.12)"/>
+  <text x="20" y="78" class="h" font-size="16" fill="#3dd9b0">The pilot</text>
+
+  <text x="20" y="116" class="item">✓ Clean, hand-picked data</text>
+  <text x="20" y="142" class="item">✓ One user, one happy path</text>
+  <text x="20" y="168" class="item">✓ A human laughs off mistakes</text>
+  <text x="20" y="194" class="item">✓ No real load, no real cost</text>
+  <text x="20" y="220" class="item">✓ Built fast, slightly off-process</text>
+  <text x="20" y="246" class="item">✓ Success = applause in a demo</text>
+  <text x="20" y="284" class="small" fill="#3dd9b0">TAKES WEEKS</text>
+
+  <!-- Arrow -->
+  <path d="M 300 185 L 350 185" stroke="#6b7a8d" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#6b7a8d"/>
+    </marker>
+  </defs>
+  <text x="325" y="170" text-anchor="middle" class="small">THE</text>
+  <text x="325" y="206" text-anchor="middle" class="small">GAP</text>
+
+  <!-- Production box -->
+  <rect x="360" y="50" width="360" height="270" rx="14" class="box"/>
+  <rect x="360" y="50" width="360" height="44" rx="14" fill="rgba(78,164,232,.12)"/>
+  <text x="380" y="78" class="h" font-size="16" fill="#4ea4e8">Production</text>
+
+  <text x="380" y="116" class="item">✓ Messy, real-world data — every edge case</text>
+  <text x="380" y="142" class="item">✓ Every user, every malformed input, at once</text>
+  <text x="380" y="168" class="item">✓ A designed failure path — who sees it, then what</text>
+  <text x="380" y="194" class="item">✓ Real load, real cost-per-call at real volume</text>
+  <text x="380" y="220" class="item">✓ A named owner, security review, change control</text>
+  <text x="380" y="246" class="item">✓ Success = a number, agreed before launch</text>
+  <text x="380" y="284" class="small" fill="#4ea4e8">TAKES MONTHS — IF ANYONE OWNS IT</text>
+
+  <text x="0" y="356" class="label" font-style="italic" fill="#a7b4c4" font-size="12.5">Most AI investment doesn't fail in the pilot. It evaporates in the gap.</text>
+</svg>

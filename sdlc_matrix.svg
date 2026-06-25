@@ -1,0 +1,83 @@
+<svg viewBox="0 0 720 470" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="SDLC AI Leverage Matrix showing where AI accelerates each stage of the software lifecycle">
+  <defs>
+    <linearGradient id="barHigh" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#3dd9b0"/>
+      <stop offset="100%" stop-color="#4ea4e8"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    .title{font-family:'Space Grotesk',sans-serif;font-weight:600;fill:#eef3f8;}
+    .stage{font-family:'Space Grotesk',sans-serif;font-size:13.5px;fill:#d4dde7;}
+    .tier{font-family:'JetBrains Mono',monospace;font-size:10px;fill:#6b7a8d;letter-spacing:1px;text-transform:uppercase;}
+    .legend{font-family:'JetBrains Mono',monospace;font-size:10.5px;fill:#a7b4c4;letter-spacing:.5px;}
+    .track{fill:rgba(255,255,255,.05);}
+  </style>
+
+  <text x="0" y="26" class="title" font-size="19">Where AI moves the needle — by lifecycle stage</text>
+
+  <!-- legend -->
+  <rect x="0" y="42" width="11" height="11" rx="2" fill="url(#barHigh)"/>
+  <text x="18" y="51" class="legend">AI leverage (how much faster the work gets)</text>
+
+  <!-- Tier label: TRANSFORMS -->
+  <text x="0" y="84" class="tier" fill="#3dd9b0">Transforms the work</text>
+
+  <!-- rows: each has stage label (left col 165w), track, bar -->
+  <!-- Writing Code 90 -->
+  <text x="158" y="104" text-anchor="end" class="stage">Writing code</text>
+  <rect x="170" y="95" width="520" height="13" rx="3" class="track"/>
+  <rect x="170" y="95" width="468" height="13" rx="3" fill="url(#barHigh)"/>
+
+  <!-- Testing 92 -->
+  <text x="158" y="128" text-anchor="end" class="stage">Testing</text>
+  <rect x="170" y="119" width="520" height="13" rx="3" class="track"/>
+  <rect x="170" y="119" width="478" height="13" rx="3" fill="url(#barHigh)"/>
+
+  <!-- Review & Docs 85 -->
+  <text x="158" y="152" text-anchor="end" class="stage">Review &amp; docs</text>
+  <rect x="170" y="143" width="520" height="13" rx="3" class="track"/>
+  <rect x="170" y="143" width="442" height="13" rx="3" fill="url(#barHigh)"/>
+
+  <!-- Tier label: MODEST -->
+  <text x="0" y="190" class="tier" fill="#4ea4e8">Modest lift</text>
+
+  <!-- Deployment & Ops 45 -->
+  <text x="158" y="210" text-anchor="end" class="stage">Deployment &amp; ops</text>
+  <rect x="170" y="201" width="520" height="13" rx="3" class="track"/>
+  <rect x="170" y="201" width="234" height="13" rx="3" fill="url(#barHigh)" opacity="0.75"/>
+
+  <!-- Refactoring 40 -->
+  <text x="158" y="234" text-anchor="end" class="stage">Refactoring</text>
+  <rect x="170" y="225" width="520" height="13" rx="3" class="track"/>
+  <rect x="170" y="225" width="208" height="13" rx="3" fill="url(#barHigh)" opacity="0.75"/>
+
+  <!-- Debugging 38 -->
+  <text x="158" y="258" text-anchor="end" class="stage">Debugging</text>
+  <rect x="170" y="249" width="520" height="13" rx="3" class="track"/>
+  <rect x="170" y="249" width="198" height="13" rx="3" fill="url(#barHigh)" opacity="0.75"/>
+
+  <!-- Tier label: LITTLE / NONE -->
+  <text x="0" y="296" class="tier" fill="#6b7a8d">Little to none</text>
+
+  <!-- Requirements discovery 12 -->
+  <text x="158" y="316" text-anchor="end" class="stage">Understanding the problem</text>
+  <rect x="170" y="307" width="520" height="13" rx="3" class="track"/>
+  <rect x="170" y="307" width="62" height="13" rx="3" fill="#6b7a8d" opacity="0.6"/>
+
+  <!-- System design 15 -->
+  <text x="158" y="340" text-anchor="end" class="stage">System design</text>
+  <rect x="170" y="331" width="520" height="13" rx="3" class="track"/>
+  <rect x="170" y="331" width="78" height="13" rx="3" fill="#6b7a8d" opacity="0.6"/>
+
+  <!-- Judgement calls 6 -->
+  <text x="158" y="364" text-anchor="end" class="stage">The judgement calls</text>
+  <rect x="170" y="355" width="520" height="13" rx="3" class="track"/>
+  <rect x="170" y="355" width="32" height="13" rx="3" fill="#6b7a8d" opacity="0.6"/>
+
+  <!-- baseline note -->
+  <line x1="170" y1="392" x2="690" y2="392" stroke="rgba(255,255,255,.09)" stroke-width="1"/>
+  <text x="170" y="414" class="legend" fill="#6b7a8d">Low</text>
+  <text x="690" y="414" text-anchor="end" class="legend" fill="#6b7a8d">High</text>
+  <text x="170" y="442" class="stage" font-style="italic" fill="#a7b4c4" font-size="12.5">The pattern: AI transforms the mechanical work and barely touches the judgement.</text>
+</svg>
